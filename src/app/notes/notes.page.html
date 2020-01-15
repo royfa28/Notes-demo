@@ -15,14 +15,18 @@
   </ion-fab>
   <ion-searchbar color="tertiary"></ion-searchbar>
   <ion-grid>
+    <!--This is the card view-->
     <ion-row>
       <ion-col *ngFor="let note of notes" size="6" (click)="getNoteDetail(note.id)">
         <ion-card>
-        <ion-card-header>
-          {{note.name}}
-        </ion-card-header>
+          <ion-card-header>
+            <ion-card-title>{{note.name}}</ion-card-title>
+            <ion-card-subtitle>{{note.note}}</ion-card-subtitle>
+            <!-- <ion-card-subtitle>{{note.data.todate() | date'DD/MM/YYYY h:m:s' -->
+          </ion-card-header>
         </ion-card>
       </ion-col>
     </ion-row>
+
   </ion-grid>
 </ion-content>

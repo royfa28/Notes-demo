@@ -35,6 +35,7 @@ export class NotesPage implements OnInit {
     addModal.present();
   }
 
+  // Get the data from database
   async getNotes() {
     this.data.notes$.subscribe((data) => {
       console.log(data);

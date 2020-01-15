@@ -39,6 +39,7 @@ export class DataService {
     this.notesCollection.add(data);
   }
 
+  // Read it everytime data is changed
   getNotes() {
     return this.notesCollection.snapshotChanges()
       .pipe( map(actions => actions.map(a => {
