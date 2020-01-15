@@ -49,4 +49,11 @@ export class DataService {
         }))
       );
   }
+
+  updateNote( note ){
+    this.notesCollection.doc( note.id ).update({
+      name: note.name,
+      note: note.note
+    });
+  }
 }

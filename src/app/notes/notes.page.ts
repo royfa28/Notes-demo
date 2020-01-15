@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { ModalController } from '@ionic/angular';
 import { AddPage } from '../add/add.page';
 import {Note} from '../../models/note.interface';
+import { NoteDetailPage } from '../note-detail/note-detail.page';
 
 
 @Component({
@@ -43,7 +44,14 @@ export class NotesPage implements OnInit {
     });
   }
 
-  getNoteDetail(id) {
-    console.log(id);
+  async getNoteDetail( note ) {
+    const detailModal = await this.modal.create({ component: NoteDetailPage, componentProps: note});
+    detailModal.onDidDismiss().then( (response) => {
+      if (response.data) {
+        //Save the changes in the note
+      }
+    })
+    .catch( (error) =>console.log(error) );
+    detailModal.present();
   }
 }
